@@ -17,3 +17,4 @@ class Employee {
 const sanjukta = new Employee("Sanjukta Giri", 2779989);
 sanjukta.getName();
 sanjukta.getEmpId();
+console.log(sanjukta);
