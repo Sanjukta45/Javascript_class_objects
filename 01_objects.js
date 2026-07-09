@@ -26,4 +26,4 @@ const karan = {
 karan.__proto__ = employee;
 
 console.log(karan);
-karan.employeeDetails();
+karan.employeeDetails()
