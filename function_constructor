@@ -1,0 +1,98 @@
+# Function Constructor in JavaScript
+
+## Overview
+
+The **Function Constructor** is a built-in JavaScript feature that allows functions to be created dynamically at runtime using the `new Function()` syntax.
+
+## Syntax
+
+```javascript
+new Function(arg1, arg2, ..., functionBody);
+```
+
+* `arg1, arg2, ...` → Function parameters (as strings)
+* `functionBody` → Function code (as a string)
+
+## Example
+
+```javascript
+const add = new Function("a", "b", "return a + b;");
+
+console.log(add(5, 3)); // 8
+```
+
+### Equivalent Function Declaration
+
+```javascript
+function add(a, b) {
+    return a + b;
+}
+```
+
+## How It Works
+
+When a Function Constructor is executed, JavaScript creates a new function object by parsing the provided strings as function parameters and function body.
+
+```javascript
+const greet = new Function(
+    "name",
+    "return `Hello, ${name}`;"
+);
+
+console.log(greet("Sanjukta"));
+```
+
+## Scope Behavior
+
+Functions created with `new Function()` do **not** have access to local variables from the surrounding scope. They execute in the global scope.
+
+```javascript
+let x = 10;
+
+function demo() {
+    let y = 20;
+
+    const fn = new Function("return typeof y;");
+    console.log(fn()); // "undefined"
+}
+
+demo();
+```
+
+## Advantages
+
+* Allows dynamic function creation.
+* Useful when function logic is generated programmatically.
+* Can be used for scripting engines and dynamic code execution.
+
+## Disadvantages
+
+* Slower than regular function declarations because the code must be parsed at runtime.
+* Harder to debug and maintain.
+* Potential security risks when using untrusted input.
+* Does not support closures over local variables.
+
+## Use Cases
+
+* Dynamic code generation.
+* Custom scripting systems.
+* Runtime-generated calculations or expressions.
+
+## Best Practice
+
+In most applications, prefer:
+
+* Function Declarations
+* Function Expressions
+* Arrow Functions
+
+Use the Function Constructor only when dynamic function creation is genuinely required.
+
+## Key Interview Points
+
+1. Created using `new Function()`.
+2. Parameters and function body are passed as strings.
+3. Executes in the global scope.
+4. Does not capture local scope variables.
+5. Slower than normal functions due to runtime parsing.
+6. Similar to `eval()`, but returns a function object instead of executing code immediately.
