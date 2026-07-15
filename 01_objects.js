@@ -9,7 +9,6 @@ const employee = {
     }
 }
 
-// console.log(employee);
 // console.log(employee.name);
 // employee.employeeDetails.call(employee);
 
