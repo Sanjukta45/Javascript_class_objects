@@ -1,5 +1,23 @@
  Function Constructor in JavaScript
 
+Syntax
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+Create objects using the new keyword:
+
+const p1 = new Person("Sanjukta", 25);
+const p2 = new Person("Rahul", 30);
+
+console.log(p1.name); // Sanjukta
+console.log(p2.age);  // 30
+
+
+
+
+
 ## Overview
 
 The **Function Constructor** is a built-in JavaScript feature that allows functions to be created dynamically at runtime using the `new Function()` syntax.
